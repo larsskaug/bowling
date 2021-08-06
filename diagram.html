@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.11.2/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+
+<h1>Class Diagram for Bowling App</h1>
+
+<p/>Each Frame has one (when started) or two shots, except the tenth, which can have a third.
+
+<div class="mermaid">classDiagram
+    PlayerGame "1" --> "0..*" GameStats
+    Player "1" --> "0..*" PlayerGame
+    GameStats "1" --> "0..*" Frames
+class Player{
+      name: String
+}
+class Frames{
+      shots: List[List[Int]]
+      scores: List[Int]
+}
+class GameStats{
+      player: String
+      frames: Frames
+}
+class PlayerGame{
+    name: String
+    shots: List[List[Int]]
+    frames: Frames
+    gameStats: GameStats
+}
+</div>
+		
+    </body>
+</html>

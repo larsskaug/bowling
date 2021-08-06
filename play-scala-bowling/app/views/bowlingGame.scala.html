@@ -1,0 +1,43 @@
+@(scores: Seq[Seq[Any]], frames: List[List[Int]])
+
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bowling</title>
+</head>
+
+<body>
+
+
+    <table style="display: block; table-layout: fixed;">
+        <tr>
+            <td style="inline-block; border:1px red solid;">@scores(0)(0)</td>
+            <!-- Number the frames from one to ten-->
+            @for(i <- 1 to 10) { <td style="inline-block">
+                <table style="border:1px red solid">
+                    <tr>
+                        <th colspan=3 align=center>Frame @(i)</th>
+                    </tr>
+                   <!-- Each frame has up to two (three for the 10th frame) shots -->
+                    @for(frame <- (if ((frames(i-1).size == 2) && (frames(i-1).sum == 10)) 
+                                        "/" :: frames(i-1).drop(1) 
+                                   else frames(i-1)).reverse) {
+                        <!-- Display "X" for Strikes and "/" Spares-->
+                        <td align=right>@(if (frame == 10) "X" else  frame)
+                        </td>
+                    }
+        </tr>
+        <tr>
+            <td colspan=3 align=right style="font-weight: bold; font-size: larger;">@(scores(0)(i))</td>
+        </tr>
+    </table>
+    </td>
+    }
+    <td align=right valign=bottom width=50ch style="border:1px red solid; font-weight: bold; font-size: larger; ">@scores(0).last</td>
+    </tr>
+    </table>
+</body>
