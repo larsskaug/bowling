@@ -11,7 +11,7 @@ Then build the application by running
  
 `sbt run` 
 
-To run on a different port, use
+To specify a diferent port than the default (9000), run
 
 `sbt "run 9001"`
 
