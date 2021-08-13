@@ -12,7 +12,8 @@ Then build the application by running
 `sbt run` 
 
 To run on a different port, use
-`sbt "run 9001"
+
+`sbt "run 9001"`
 
 Once the application has finished building, open the follwing address in a browser
 
